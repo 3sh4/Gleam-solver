@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="GleamDB provides an overview of gleam.io giveaways, sweepstakes and competitions. Additionally, it provides tools to filter, manage and search the database.">
+    <meta name="Keywords" content="gleam.io gleam database giveaways sweepstakes contests competitions free list overview">
+    <meta name="author" content="Royalgamer06">
+    <title>Gleam.io Database</title>
+    <script src="/cdn-cgi/apps/head/jWcW_tVaewkGiqcbyplLpFTrgN0.js"></script><link rel="icon" href="https://gleam.io/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="gleam.io.css"/>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="sorttable.js"></script>
+    <script type="text/javascript" src="gleamdb.js?v=3"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6665092166911001",
+            enable_page_level_ads: true
+        });
+    </script>
+
+</head>
+<body>
+<div id="myModal" class="modal" style="overflow: hidden !important; display: none;">
+    <div class="modal-content" style="overflow: hidden; position: relative;">
+        <div style="float: left; width: 50%;">
+            <p>
+                <b>Legal</b>
+                <br>This site is not affiliated with Gleam or any of their partners.
+                <br>All copyrights reserved to their respective owners.
+                <br>By using this site, you agree that we store and access cookies on your device.
+                <br>This site is powered by CloudFlare, Disqus, Gleam and Reddit.
+            </p>
+            <p>
+                <b>About</b>
+                <br>Welcome to GleamDB, created by <a href="http://steamcommunity.com/id/royalgamer06/">Royalgamer06</a>.
+                <br>GleamDB provides a nice overview of Gleam.io hosted giveaways, among other useful features.
+                <br><a href="https://gleam.io/">Gleam.io</a> is a service that offers promotions through the form of giveaways.
+                <br>It's one of the most used giveaway systems.
+            </p>
+            <p>
+                <b>Features</b>
+            </p>
+            <ul>
+                <li>Show a list of active giveaways hosted at Gleam.io</li>
+                <li>Separation between 2 giveaway types: Instant Reward (Rewards) and Competition</li>
+                <li>Show the number of items in each list</li>
+                <li>Choose to see only game reward type giveaways</li>
+                <li>Ability to sort each column</li>
+                <li>Search for keywords in giveaway titles</li>
+                <li>Filtering accounts required and region</li>
+                <li>Hide and clear visited giveaways</li>
+            </ul>
+        </div>
+        <div style="float: right; width: 50%;">
+            <span id="modalclose" class="close">x</span>
+            <p>
+                <b>Function</b>
+                <br>Every 30 minutes, GleamDB collects all of the Gleam.io giveaways from <a href="https://www.reddit.com/search?q=site%3Agleam.io&amp;sort=new">reddit.com</a> using <a href="https://www.reddit.com/dev/api/">Reddit's API</a>.
+                <br>Then every giveaway gets analyzed for information and stored in the database, which you will be able to load and see on this site.
+                <br>So if you host a giveaway on Gleam.io and it is missing here, just submit it for example <a href="https://www.reddit.com/r/giveaways/submit">here</a> and it should show up in GleamDB within 30 minutes!
+            </p>
+            <p>
+                <b>Thanks</b>
+                <br>My original intention for this site was for personal use.
+                <br>But after the huge positive response from others, I decided to share it to the public.
+                <br>Thanks for all the support!
+            </p>
+            <p>
+                <b>Check</b>
+                <br>Aside from this database, you may also find this helpful or interesting:
+            </p>
+            <ul>
+                <li><a href="http://revolt.group/index.php?/topic/565-free-steamoriginuplay-keys/">The Ultimate Guide to Free Steam/Uplay/Origin Keys</a></li>
+                <li><a href="https://prys.ga/">Prys.ga - Instant Giveaways! (new)</a></li>
+            </ul>
+            <p>Enjoy!</p>
+            <span id="nevershow" class="close" style="position: absolute; right: 0; bottom: 0; padding: 20px;">Don't show this again</span>
+        </div>
+    </div>
+</div>
+<div id="main" style="margin-left: 15%; margin-right: 15%;">
+    <div id="header">
+        <button class="btn btn-primary ng-scope" style="float: right;" id="myBtn">About</button>
+        <h1><img src="https://gleam.io/images/logo.png" alt="Logo" style="height: 32px; margin-top: -5px;"> Gleam.io Database</h1>
+        <br><br>
+    </div>
+    <div id="content">
+        <!-- <h2>FEATURED: <a href="https://prys.ga/">Prys.ga - Instant Giveaways! (new)</a></h2><br> -->
+        <div id="options">
+            <div id="sort" style="width: 20%; float:left;">
+                <b>Filter Accounts</b>
+                <br>
+                <ul class="click-blocks">
+                    <li style="opacity: 1;"><a class="amazon-bg" status="showing" style="cursor: pointer;"><i class="fa fa-amazon"></i></a></li>
+                    <li style="opacity: 1;"><a class="disqus-bg" status="showing" style="cursor: pointer;"><i class="fa fa-disqus"></i></a></li>
+                    <li style="opacity: 1;"><a class="email-bg" status="showing" style="cursor: pointer;"><i class="fa fa-envelope"></i></a></li>
+                    <li style="opacity: 1;"><a class="eventbrite-bg" status="showing" style="cursor: pointer;"><i class="fa fa-eventbrite"></i></a></li>
+                    <li style="opacity: 1;"><a class="facebook-bg" status="showing" style="cursor: pointer;"><i class="fa fa-facebook"></i></a></li>
+                    <li style="opacity: 1;"><a class="instagram-bg" status="showing" style="cursor: pointer;"><i class="fa fa-instagram"></i></a></li>
+                    <li style="opacity: 1;"><a class="pinterest-bg" status="showing" style="cursor: pointer;"><i class="fa fa-pinterest"></i></a></li>
+                    <li style="opacity: 1;"><a class="soundcloud-bg" status="showing" style="cursor: pointer;"><i class="fa fa-soundcloud"></i></a></li>
+                    <li style="opacity: 1;"><a class="spotify-bg" status="showing" style="cursor: pointer;"><i class="fa fa-spotify"></i></a></li>
+                    <li style="opacity: 1;"><a class="steam-bg" status="showing" style="cursor: pointer;"><i class="fa fa-steam"></i></a></li>
+                    <li style="opacity: 1;"><a class="tumblr-bg" status="showing" style="cursor: pointer;"><i class="fa fa-tumblr"></i></a></li>
+                    <li style="opacity: 1;"><a class="twitchtv-bg" status="showing" style="cursor: pointer;"><i class="fa fa-twitch"></i></a></li>
+                    <li style="opacity: 1;"><a class="twitter-bg" status="showing" style="cursor: pointer;"><i class="fa fa-twitter"></i></a></li>
+                    <li style="opacity: 1;"><a class="youtube-bg" status="showing" style="cursor: pointer;"><i class="fa fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div style="width: 20%; float: left;">
+                <b>Game Rewards Only</b>
+                <br>
+                <ul class="click-blocks">
+                    <li id="gameonly"><a style="background: #1abc9c; cursor: pointer;"><i class="fa fa-times"></i></a></li>
+                </ul>
+            </div>
+            <div style="width: 20%; float: left;">
+                <b>Worldwide Region Only</b>
+                <br>
+                <ul class="click-blocks">
+                    <li id="worldwide" status="showing"><a style="background: #1abc9c; cursor: pointer;"><i class="fa fa-times"></i></a></li>
+                </ul>
+            </div>
+            <div style="width: 20%; float: left;">
+                <b>Hide Visited Giveaways</b>
+                <br>
+                <ul class="click-blocks">
+                    <li id="visited" status="showing"><a style="background: #1abc9c; cursor: pointer;"><i class="fa fa-times"></i></a></li>
+                </ul>
+                <ul class="click-blocks">
+                    <li id="reset_visited" status="showing"><a style="background: #1abc9c; cursor: pointer;"><i class="fa fa-refresh"></i></a></li>
+                </ul>
+            </div>
+            <div style="width: 20%; float: left;"><b>Search Giveaways</b>
+                <br>
+                <input type="text" id="search" placeholder="Type to search" style="height: 25px; padding-top: 2px; padding-bottom: 2px; padding-left: 4px;">
+            </div>
+            <br>
+        </div>
+        <div id="tables">
+            <div id="Rewards">
+               
+            </div>
+            <div id="Competitions">
+              
+            </div>
+        </div>
+    </div>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = location.href;
+            this.page.identifier = 'gleamdb';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//gleamdb.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    <div id="footer">
+        <hr>
+        Gleam.io Database &#169; Royalgamer06, 2016. All rights reserved.
+    </div>
+</div>
+</body>

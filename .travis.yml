@@ -1,2 +1,9 @@
 language: csharp
 solution: GleamSolver.sln
+
+install:
+  - nuget restore GleamSolver.sln
+  - nuget install NUnit.ConsoleRunner -Version 3.5.0 -OutputDirectory testrunner
+script:
+    - xbuild /p:Configuration=Release GleamSolver.sln
+    - mono ./testrunner/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe ./SolverLibTests/bin/Release/SolverLibTests.dll

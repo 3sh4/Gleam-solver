@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DCF2CC21-8D49-4F40-8841-1D262A042727}</ProjectGuid>
+    <ProjectGuid>{3FFBA59F-A7E5-4D49-BC42-82BA0EAB8B76}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GleamSolverLibrary</RootNamespace>
-    <AssemblyName>GleamSolverLibrary</AssemblyName>
+    <RootNamespace>SolverLibTests</RootNamespace>
+    <AssemblyName>SolverLibTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,31 +33,49 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea">
-      <HintPath>..\packages\AngleSharp.0.9.9.2\lib\net45\AngleSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="JetBrains.Annotations, Version=11.1.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325">
-      <HintPath>..\..\..\AppData\Local\JetBrains\Toolbox\apps\Rider\ch-0\181.4379.360\lib\ReSharperHost\JetBrains.Annotations.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+      <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GleamDb\Enums\AccountRequirement.cs" />
-    <Compile Include="GleamDb\Enums\AccountRequirementFactory.cs" />
-    <Compile Include="GleamDb\Exceptions\BadFormatException.cs" />
-    <Compile Include="GleamDb\GleamDbGiveawayInfo.cs" />
-    <Compile Include="GleamDb\Parsers\GiveawaysTableParser.cs" />
-    <Compile Include="GleamDb\Parsers\GiveawayTableElementParser.cs" />
+    <Compile Include="GleamDbTests\ParserTests\GiveawaysTableParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\GleamSolverLibrary\GleamSolverLibrary.csproj">
+      <Project>{dcf2cc21-8d49-4f40-8841-1d262a042727}</Project>
+      <Name>GleamSolverLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BaseTypes" />
+    <EmbeddedResource Include="GleamDbTests\ParserTests\TestData\GoodResponse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GleamDbTests\ParserTests\TestData\EmptyTablesResponse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GleamDbTests\ParserTests\TestData\WrongColumnsCountResponse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GleamDbTests\ParserTests\TestData\BadDateFormatResponse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GleamDbTests\ParserTests\TestData\BadDaysLeftFormatResponse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

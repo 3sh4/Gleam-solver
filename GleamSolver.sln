@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GleamSolverLibrary", "GleamSolverLibrary\GleamSolverLibrary.csproj", "{DCF2CC21-8D49-4F40-8841-1D262A042727}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolverLibTests", "SolverLibTests\SolverLibTests.csproj", "{3FFBA59F-A7E5-4D49-BC42-82BA0EAB8B76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{DCF2CC21-8D49-4F40-8841-1D262A042727}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCF2CC21-8D49-4F40-8841-1D262A042727}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCF2CC21-8D49-4F40-8841-1D262A042727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FFBA59F-A7E5-4D49-BC42-82BA0EAB8B76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FFBA59F-A7E5-4D49-BC42-82BA0EAB8B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FFBA59F-A7E5-4D49-BC42-82BA0EAB8B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FFBA59F-A7E5-4D49-BC42-82BA0EAB8B76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
